@@ -60,7 +60,7 @@ Contours are defined as the line joining all the points along the boundary of an
 ![image](https://github.com/user-attachments/assets/b190aa20-05a3-49ea-a873-11d18c3b0b39)
 ![image](https://github.com/user-attachments/assets/ab4f28a3-edf5-4fc3-b35b-1264baf5f6dc)
 
-Figure 3:Contours - by Mediapipe
+Figure 3: Contours - by Mediapipe
 
 The project introduces a novel means of media player control via hand gestures, aligning with users' real-world interactions. This intuitive approach offers a seamless and interruption-free experience, eliminating the need for extra devices. Moreover, it expands interaction possibilities by allowing diverse forms of engagement, rather than confining users to a single input point. The process begins with capturing an image, which is subsequently converted into RGB format. The code then proceeds to verify the presence of multiple hands within the image. An empty list serves as a repository for elements representing the detected hand's characteristics. These elements encompass the number of points comprising the hand, derived through the utilization of media pipe technology. 
 
