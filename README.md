@@ -38,7 +38,7 @@ Figure 1: Process Flow
 Using these hand landmarks, we can define various gestures and link them to their corresponding intended functionalities to control the media player. Coordinates on the screen and the landmarks on the hand are mapped together to generate the desired output. 
 In the segmentation image of fingers, the labeling algorithm is applied to mark the regions of the fingers. In the result of the labeling method, the detected regions in which the number of pixels is too small are regarded as noisy regions and discarded. Only the regions of enough sizes are regarded as fingers and remain.
 
- 
+![image](https://github.com/user-attachments/assets/89ea61b2-0470-4b80-9553-0b732a174760)
 Figure 2:Hand landmarks - by Mediapipe
 
 With the help of the palm mask, fingers, and the palm can be segmented easily. The part of the hand that is covered by the palm mask is the palm, while the other parts of the hand are the fingers. Based on the count the features of the media are controlled 
@@ -47,17 +47,18 @@ a) If the count of the finger is 1 the media will be forward.
 b) If the count of the finger is 2 the media will be Rewind. 
  
 Similarly, the logic for controlling volume and playback is based on counting the number of fingers raised:
-	When three fingers are raised (cnt == 3), the code simulates pressing the "up" arrow key using pyautogui.press("up"), which typically increases the volume.
-	When four fingers are raised (cnt == 4), it simulates pressing the "down" arrow key with pyautogui.press("down"), which usually decreases the volume.
-	When five fingers are raised (cnt == 5), it simulates pressing the space bar using pyautogui.press("space"), which toggles play and pause in most media players.
-	When one finger is raised (cnt == 1), it simulates pressing the right arrow key using pyautogui.press("right"), typically used to skip to the next track or fast forward.
-	When two fingers are raised (cnt == 2), it simulates pressing the left arrow key with pyautogui.press("left"), which usually goes back to the previous track or rewinds.
+- When three fingers are raised (cnt == 3), the code simulates pressing the "up" arrow key using pyautogui.press("up"), which typically increases the volume.
+- When four fingers are raised (cnt == 4), it simulates pressing the "down" arrow key with pyautogui.press("down"), which usually decreases the volume.
+- When five fingers are raised (cnt == 5), it simulates pressing the space bar using pyautogui.press("space"), which toggles play and pause in most media players.
+- When one finger is raised (cnt == 1), it simulates pressing the right arrow key using pyautogui.press("right"), typically used to skip to the next track or fast forward.
+- When two fingers are raised (cnt == 2), it simulates pressing the left arrow key with pyautogui.press("left"), which usually goes back to the previous track or rewinds.
 
 
-C. Contours defined by MediaPipe
+# C. Contours defined by MediaPipe
 Contours are defined as the line joining all the points along the boundary of an image that has the same intensity. Contours come in handy in shape analysis, finding the size of the object of interest, and object detection.
 
-               
+![image](https://github.com/user-attachments/assets/b190aa20-05a3-49ea-a873-11d18c3b0b39)
+![image](https://github.com/user-attachments/assets/ab4f28a3-edf5-4fc3-b35b-1264baf5f6dc)
 Figure 3:Contours - by Mediapipe
 
 The project introduces a novel means of media player control via hand gestures, aligning with users' real-world interactions. This intuitive approach offers a seamless and interruption-free experience, eliminating the need for extra devices. Moreover, it expands interaction possibilities by allowing diverse forms of engagement, rather than confining users to a single input point. The process begins with capturing an image, which is subsequently converted into RGB format. The code then proceeds to verify the presence of multiple hands within the image. An empty list serves as a repository for elements representing the detected hand's characteristics. These elements encompass the number of points comprising the hand, derived through the utilization of media pipe technology. 
