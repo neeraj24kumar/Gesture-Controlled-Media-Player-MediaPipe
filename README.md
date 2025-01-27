@@ -68,8 +68,7 @@ Note: - Open youtube in split screen and leave the cursor in that video when the
 
 A. Play/Pause 
 The system has succeeded in getting a hand gesture to pause and detect the action to be performed, so the corresponding video play action is active.
-
- 
+![image](https://github.com/user-attachments/assets/db94c088-96c7-4764-989c-2f4c9b6ccc0c)
 Figure 4:Hand Gesture for play / pause
 
 
