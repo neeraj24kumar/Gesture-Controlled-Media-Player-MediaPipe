@@ -3,40 +3,38 @@ Developed an interface that allows users to control media playback through hand 
 
 The objective of this project is to develop a gesture-controlled media player that allows users to manage media playback through intuitive hand gestures, thereby enhancing the user experience by eliminating the need for traditional input devices such as keyboards and mice. By leveraging computer vision techniques with the MediaPipe library for hand tracking and PyAutoGUI for simulating keyboard actions, the system aims to provide a seamless and interactive interface for media control. Ultimately, this project seeks to demonstrate the potential of gesture recognition technology in creating more accessible and user-friendly applications.
 
-System Components and Technologies Used: 
-	Webcam: A webcam is used to capture the live video feed of the user's hand gestures.  
-	Gesture Recognition Algorithm: The system employs a gesture recognition algorithm to analyze the video frames and identify specific hand gestures.  
-	Media Player: The media player is responsible for playing, pausing, stopping, and adjusting the volume of media content.  
-	Gesture Mapping: The system maps recognized gestures to corresponding media player commands.  
-	MediaPipe: A cross-platform framework for building multimodal applied machine learning pipelines 
-	PyAutoGUI: A Python module that enables programmatically controlling the mouse and keyboard.
+# System Components and Technologies Used: 
+- Webcam: A webcam is used to capture the live video feed of the user's hand gestures.  
+- Gesture Recognition Algorithm: The system employs a gesture recognition algorithm to analyze the video frames and identify specific hand gestures.  
+- Media Player: The media player is responsible for playing, pausing, stopping, and adjusting the volume of media content.  
+- Gesture Mapping: The system maps recognized gestures to corresponding media player commands.  
+- MediaPipe: A cross-platform framework for building multimodal applied machine learning pipelines 
+- PyAutoGUI: A Python module that enables programmatically controlling the mouse and keyboard.
 
-Project Flow:  
-	A fundamental library for scientific computing with Python, used for numerical operations.  
-	The project begins by setting up the development environment and installing the required libraries.  
-	A Program is coded with the necessary user interface elements, such as gesture patterns.
-	The Mediapipe library is used to access the webcam and perform hand gesture recognition. 
-	The hand landmarks are extracted using the Mediapipe library, and the relevant gestures are recognized based on the position of the fingers.  
-	Once a gesture is recognized, appropriate actions are triggered using PyAutoGUI to control media playback.  
-	The NumPy library is utilized for efficient numerical operations and data manipulation if required.  
-	The application is tested extensively on different media playback platforms (e.g. Youtube) to ensure proper functionality and usability.
+# Project Flow:  
+- A fundamental library for scientific computing with Python, used for numerical operations.  
+- The project begins by setting up the development environment and installing the required libraries.  
+- A Program is coded with the necessary user interface elements, such as gesture patterns.
+- The Mediapipe library is used to access the webcam and perform hand gesture recognition. 
+- The hand landmarks are extracted using the Mediapipe library, and the relevant gestures are recognized based on the position of the fingers.  
+- Once a gesture is recognized, appropriate actions are triggered using PyAutoGUI to control media playback.  
+- The NumPy library is utilized for efficient numerical operations and data manipulation if required.  
+- The application is tested extensively on different media playback platforms (e.g. Youtube) to ensure proper functionality and usability.
 
  ![image](https://github.com/user-attachments/assets/4f519fdc-3e9d-45a3-9a4b-86201cb7c35a)
-
 Figure 1: Process Flow
 
+# A. Fingers Recognition 
+- The function `count_fingers(lst)` receives a list of hand landmarks detected by the MediaPipe library, where each landmark corresponds to a specific point on the hand.
+- A counter variable `cnt` is initialized to zero. This will keep track of how many fingers are raised.
+- The variable `thresh` is calculated using the y-coordinates of specific landmarks (the wrist and the middle finger). This threshold helps determine if a finger is considered raised based on its position relative to other landmarks.
+- The function checks the positions of various landmarks to see if fingers are extended. For each finger (thumb, index, middle, ring), it compares the y-coordinates of the fingertip (tip landmark) and the corresponding base landmark.
+- If the difference in their y-coordinates exceeds the threshold (`thresh`), it indicates that the finger is raised, and the counter `cnt` is incremented.
+- Additionally, for the thumb, there is an x-coordinate check. If the x-coordinate difference between the thumb tip and base exceeds a certain value (6), it counts as a raised finger.
+- After evaluating all relevant landmarks, the function returns the total count of raised fingers (`cnt`).
 
-A. Fingers Recognition 
-	The function `count_fingers(lst)` receives a list of hand landmarks detected by the MediaPipe library, where each landmark corresponds to a specific point on the hand.
-	A counter variable `cnt` is initialized to zero. This will keep track of how many fingers are raised.
-	The variable `thresh` is calculated using the y-coordinates of specific landmarks (the wrist and the middle finger). This threshold helps determine if a finger is considered raised based on its position relative to other landmarks.
-	The function checks the positions of various landmarks to see if fingers are extended. For each finger (thumb, index, middle, ring), it compares the y-coordinates of the fingertip (tip landmark) and the corresponding base landmark.
-	If the difference in their y-coordinates exceeds the threshold (`thresh`), it indicates that the finger is raised, and the counter `cnt` is incremented.
-	Additionally, for the thumb, there is an x-coordinate check. If the x-coordinate difference between the thumb tip and base exceeds a certain value (6), it counts as a raised finger.
-	After evaluating all relevant landmarks, the function returns the total count of raised fingers (`cnt`).
 
-
-B. Hand Landmarks defined by MediaPipe 
+# B. Hand Landmarks defined by MediaPipe 
 Using these hand landmarks, we can define various gestures and link them to their corresponding intended functionalities to control the media player. Coordinates on the screen and the landmarks on the hand are mapped together to generate the desired output. 
 In the segmentation image of fingers, the labeling algorithm is applied to mark the regions of the fingers. In the result of the labeling method, the detected regions in which the number of pixels is too small are regarded as noisy regions and discarded. Only the regions of enough sizes are regarded as fingers and remain.
 
