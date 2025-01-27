@@ -21,7 +21,8 @@ Project Flow:
 	The NumPy library is utilized for efficient numerical operations and data manipulation if required.  
 	The application is tested extensively on different media playback platforms (e.g. Youtube) to ensure proper functionality and usability.
 
- 
+ ![image](https://github.com/user-attachments/assets/4f519fdc-3e9d-45a3-9a4b-86201cb7c35a)
+
 Figure 1: Process Flow
 
 
